@@ -1,0 +1,62 @@
+body {
+font-size: 62.5%;
+width: 100%;
+}
+section#wrap {
+width: 102.4em;
+margin: 0 auto;
+background-color: #fff;
+}
+header {
+padding: 2em 0 1em 5em;
+}
+h1{
+font: 4.8em Mistral, serif;
+color: #afafaf;
+}
+
+nav[role="navigation"] {
+width: 96em;
+height: 4em;
+background-color: #afafaf;
+margin: 0 3.2em;
+}
+
+nav[role="navigation"] a {
+width: auto;
+display: block;
+float: left;
+font: 1.8em Arial, sans-serif; 
+color: #fff;
+text-decoration: none;
+padding: 0.5em 2.3em 0.5em 2.2em;
+}
+nav[role="navigation"] a:hover, 
+nav[role="navigation"] a#active {
+text-decoration: underline;
+}
+
+#wrap section {
+margin: 2em 0 1em 5em;
+width: 77em;
+}
+h3 {
+font: 2em Arial, sans-serif;
+color: #666;
+}
+#wrap section p {
+font: 1.2em Arial, sans-serif;
+color: #666;
+margin: .8em 0 1em 0;
+}
+footer {
+font: 1.2em Arial, sans-serif;
+width: 80em;
+height: 5em; 
+background-color: #afafaf;
+margin: 3.5em 2.7em 0 2.7em;
+}
+p#copy {
+color: #fff;
+padding: 2em 0 2em 1.5em;
+}
