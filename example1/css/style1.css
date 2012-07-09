@@ -17,7 +17,7 @@ color: #afafaf;
 
 nav[role="navigation"] {
 width: 96em;
-height: 4em;
+height: 4.2em;
 background-color: #afafaf;
 margin: 0 3.2em;
 }
@@ -29,7 +29,7 @@ float: left;
 font: 1.8em Arial, sans-serif; 
 color: #fff;
 text-decoration: none;
-padding: 0.5em 2.3em 0.5em 2.2em;
+padding: 0.5em 2.2em 0.5em 2.2em;
 }
 nav[role="navigation"] a:hover, 
 nav[role="navigation"] a#active {
@@ -37,16 +37,19 @@ text-decoration: underline;
 }
 
 #wrap section {
-margin: 2em 0 1em 5em;
-width: 77em;
+margin: 1.65em 0 .8em 4.43em;
+width: 78em;
+font: 1.15em Arial, sans-serif;
+font-weight: 600;
+color: #666;
+
 }
 h3 {
-font: 2em Arial, sans-serif;
+font: 1.8em Arial, sans-serif;
 color: #666;
 }
 #wrap section p {
-font: 1.2em Arial, sans-serif;
-color: #666;
+width: 67em;
 margin: .8em 0 1em 0;
 }
 footer {
@@ -54,7 +57,7 @@ font: 1.2em Arial, sans-serif;
 width: 80em;
 height: 5em; 
 background-color: #afafaf;
-margin: 3.5em 2.7em 0 2.7em;
+margin: 3.83em 2.7em 0 2.7em;
 }
 p#copy {
 color: #fff;
