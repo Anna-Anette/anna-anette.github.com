@@ -14,14 +14,12 @@ h1{
 font: 4.8em Mistral, serif;
 color: #afafaf;
 }
-
 nav[role="navigation"] {
 width: 96em;
 height: 4.2em;
 background-color: #afafaf;
 margin: 0 3.2em;
 }
-
 nav[role="navigation"] a {
 width: auto;
 display: block;
@@ -35,14 +33,12 @@ nav[role="navigation"] a:hover,
 nav[role="navigation"] a#active {
 text-decoration: underline;
 }
-
 #wrap section {
 margin: 1.65em 0 .8em 4.43em;
 width: 78em;
 font: 1.15em Arial, sans-serif;
 font-weight: 600;
 color: #666;
-
 }
 h3 {
 font: 1.8em Arial, sans-serif;
