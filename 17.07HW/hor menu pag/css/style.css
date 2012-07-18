@@ -1,0 +1,30 @@
+html {
+	margin: 0;
+	padding: 0;
+	font: 12px Tahoma, sans-serif;
+	color: #575873;
+}
+.navigation li{
+	display: inline-block;
+	vertical-align: middle;
+	*zoom: 1;
+	*display: inline;
+	margin: 0 5px 0 0;
+}
+.navigation  a{
+color: #575873;
+}
+.pages  a{
+	border: 1px solid #DEDEDE;
+	padding: 4px 8px;
+}
+.pages .active_page {
+	background: #606F90;
+	border: 1px solid #606F90;
+	color: #fff;
+	cursor: default;
+}
+.navigation .pages a:hover{
+	color: #fff;
+	background: #606F90;
+}
