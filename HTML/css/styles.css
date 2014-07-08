@@ -1,0 +1,795 @@
+/**
+ * BxSlider v4.1.2 - Fully loaded, responsive content slider
+ * http://bxslider.com
+ *
+ * Written by: Steven Wanderski, 2014
+ * http://stevenwanderski.com
+ * (while drinking Belgian ales and listening to jazz)
+ *
+ * CEO and founder of bxCreative, LTD
+ * http://bxcreative.com
+ */
+/** RESET AND LAYOUT
+===================================*/
+/* line 17, ../scss/_jquery.bxslider.scss */
+.bx-wrapper {
+  position: relative;
+  margin: 0 auto 60px;
+  padding: 0;
+  *zoom: 1;
+}
+
+/* line 24, ../scss/_jquery.bxslider.scss */
+.bx-wrapper img {
+  max-width: 100%;
+  display: block;
+}
+
+/** THEME
+===================================*/
+/* line 32, ../scss/_jquery.bxslider.scss */
+.bx-wrapper .bx-viewport {
+  /*fix other elements on the page moving (on Chrome)*/
+  -webkit-transform: translatez(0);
+  -moz-transform: translatez(0);
+  -ms-transform: translatez(0);
+  -o-transform: translatez(0);
+  transform: translatez(0);
+}
+
+/* line 42, ../scss/_jquery.bxslider.scss */
+.bx-wrapper .bx-pager,
+.bx-wrapper .bx-controls-auto {
+  position: absolute;
+  bottom: -30px;
+  width: 100%;
+}
+
+/* LOADER */
+/* line 50, ../scss/_jquery.bxslider.scss */
+.bx-wrapper .bx-loading {
+  min-height: 50px;
+  background: url(images/bx_loader.gif) center center no-repeat white;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2000;
+}
+
+/* PAGER */
+/* line 63, ../scss/_jquery.bxslider.scss */
+.bx-wrapper .bx-pager {
+  text-align: center;
+  font-size: .85em;
+  font-family: Arial;
+  font-weight: bold;
+  color: #666;
+  padding-top: 20px;
+}
+
+/* line 73, ../scss/_jquery.bxslider.scss */
+.bx-wrapper .bx-pager .bx-pager-item,
+.bx-wrapper .bx-controls-auto .bx-controls-auto-item {
+  display: inline-block;
+  *zoom: 1;
+  *display: inline;
+}
+
+/* line 79, ../scss/_jquery.bxslider.scss */
+.bx-wrapper .bx-pager.bx-default-pager a {
+  background-color: #666666;
+  /* Fallback Color */
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#333333), to(#666666));
+  /* Saf4+, Chrome */
+  background-image: -webkit-linear-gradient(top, #333333, #666666);
+  /* Chrome 10+, Saf5.1+, iOS 5+ */
+  background-image: -moz-linear-gradient(top, #333333, #666666);
+  /* FF3.6 */
+  background-image: -ms-linear-gradient(top, #333333, #666666);
+  /* IE10 */
+  background-image: -o-linear-gradient(top, #333333, #666666);
+  /* Opera 11.10+ */
+  background-image: linear-gradient(top, #333333, #666666);
+  filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#333333', EndColorStr='#666666');
+  text-indent: -9999px;
+  display: block;
+  width: 10px;
+  height: 10px;
+  margin: 0 5px;
+  outline: 0;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+}
+
+/* line 93, ../scss/_jquery.bxslider.scss */
+.bx-wrapper .bx-pager.bx-default-pager a:hover,
+.bx-wrapper .bx-pager.bx-default-pager a.active {
+  background-color: #6699ff;
+  /* Fallback Color */
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#6699ff), to(#6699ff));
+  /* Saf4+, Chrome */
+  background-image: -webkit-linear-gradient(top, #6699ff, #6699ff);
+  /* Chrome 10+, Saf5.1+, iOS 5+ */
+  background-image: -moz-linear-gradient(top, #6699ff, #6699ff);
+  /* FF3.6 */
+  background-image: -ms-linear-gradient(top, #6699ff, #6699ff);
+  /* IE10 */
+  background-image: -o-linear-gradient(top, #6699ff, #6699ff);
+  /* Opera 11.10+ */
+  background-image: linear-gradient(top, #6699ff, #6699ff);
+  filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#6699ff', EndColorStr='#6699ff');
+}
+
+/* DIRECTION CONTROLS (NEXT / PREV) */
+/* line 99, ../scss/_jquery.bxslider.scss */
+.bx-wrapper .bx-prev {
+  left: 10px;
+  background: url(images/controls.png) no-repeat 0 -32px;
+}
+
+/* line 104, ../scss/_jquery.bxslider.scss */
+.bx-wrapper .bx-next {
+  right: 10px;
+  background: url(images/controls.png) no-repeat -43px -32px;
+}
+
+/* line 109, ../scss/_jquery.bxslider.scss */
+.bx-wrapper .bx-prev:hover {
+  background-position: 0 0;
+}
+
+/* line 113, ../scss/_jquery.bxslider.scss */
+.bx-wrapper .bx-next:hover {
+  background-position: -43px 0;
+}
+
+/* line 117, ../scss/_jquery.bxslider.scss */
+.bx-wrapper .bx-controls-direction a {
+  position: absolute;
+  top: 50%;
+  margin-top: -16px;
+  outline: 0;
+  width: 32px;
+  height: 32px;
+  text-indent: -9999px;
+  z-index: 9999;
+}
+
+/* line 128, ../scss/_jquery.bxslider.scss */
+.bx-wrapper .bx-controls-direction a.disabled {
+  display: none;
+}
+
+/* AUTO CONTROLS (START / STOP) */
+/* line 134, ../scss/_jquery.bxslider.scss */
+.bx-wrapper .bx-controls-auto {
+  text-align: center;
+}
+
+/* line 138, ../scss/_jquery.bxslider.scss */
+.bx-wrapper .bx-controls-auto .bx-start {
+  display: block;
+  text-indent: -9999px;
+  width: 10px;
+  height: 11px;
+  outline: 0;
+  background: url(images/controls.png) -86px -11px no-repeat;
+  margin: 0 3px;
+}
+
+/* line 149, ../scss/_jquery.bxslider.scss */
+.bx-wrapper .bx-controls-auto .bx-start:hover,
+.bx-wrapper .bx-controls-auto .bx-start.active {
+  background-position: -86px 0;
+}
+
+/* line 153, ../scss/_jquery.bxslider.scss */
+.bx-wrapper .bx-controls-auto .bx-stop {
+  display: block;
+  text-indent: -9999px;
+  width: 9px;
+  height: 11px;
+  outline: 0;
+  background: url(images/controls.png) -86px -44px no-repeat;
+  margin: 0 3px;
+}
+
+/* line 164, ../scss/_jquery.bxslider.scss */
+.bx-wrapper .bx-controls-auto .bx-stop:hover,
+.bx-wrapper .bx-controls-auto .bx-stop.active {
+  background-position: -86px -33px;
+}
+
+/* PAGER WITH AUTO-CONTROLS HYBRID LAYOUT */
+/* line 170, ../scss/_jquery.bxslider.scss */
+.bx-wrapper .bx-controls.bx-has-controls-auto.bx-has-pager .bx-pager {
+  text-align: left;
+  width: 80%;
+}
+
+/* line 175, ../scss/_jquery.bxslider.scss */
+.bx-wrapper .bx-controls.bx-has-controls-auto.bx-has-pager .bx-controls-auto {
+  right: 0;
+  width: 35px;
+}
+
+/* IMAGE CAPTIONS */
+/* line 182, ../scss/_jquery.bxslider.scss */
+.bx-wrapper .bx-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background: #000\9;
+  background: rgba(0, 0, 0, 0.6);
+  width: 100%;
+}
+
+/* line 191, ../scss/_jquery.bxslider.scss */
+.bx-wrapper .bx-caption span {
+  font-family: Arial;
+  display: block;
+}
+
+/* line 1, ../scss/_new.scss */
+html, body {
+  height: 100%;
+}
+
+/* line 5, ../scss/_new.scss */
+body {
+  font-size: .75em;
+  font-family: Arial, sans-serif;
+}
+
+/* line 10, ../scss/_new.scss */
+a {
+  color: #bfbfbf;
+  font-weight: bold;
+  text-decoration: none;
+}
+/* line 14, ../scss/_new.scss */
+a:hover {
+  text-decoration: underline;
+}
+
+/* line 18, ../scss/_new.scss */
+p {
+  margin-bottom: .5em;
+}
+
+/* line 19, ../scss/_new.scss */
+.read-more {
+  color: #952200;
+}
+/* line 21, ../scss/_new.scss */
+.read-more:after {
+  content: '»';
+}
+
+/* line 25, ../scss/_new.scss */
+h1 {
+  font-size: 1.8333em;
+}
+
+/* line 29, ../scss/_new.scss */
+h2 {
+  font-size: 1.5em;
+}
+
+/* line 33, ../scss/_new.scss */
+h3, h4 {
+  font-size: 1.1666em;
+}
+
+/* line 37, ../scss/_new.scss */
+h5, h6 {
+  font-size: 1.0833em;
+}
+
+/* line 41, ../scss/_new.scss */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: bold;
+  margin-bottom: 0.25em;
+}
+
+/* line 45, ../scss/_new.scss */
+.row {
+  margin: 0 auto;
+  max-width: 960px;
+  width: 100%;
+  *zoom: 1;
+}
+/* line 14, ../scss/_mixins.scss */
+.row:before, .row:after {
+  content: " ";
+  display: table;
+}
+/* line 18, ../scss/_mixins.scss */
+.row:after {
+  clear: both;
+}
+
+/* line 52, ../scss/_new.scss */
+header {
+  background-color: #1e1e1e;
+  border-bottom: 1px solid black;
+}
+
+/* line 57, ../scss/_new.scss */
+.header-inner {
+  padding: 15px 0 20px;
+}
+
+/* line 61, ../scss/_new.scss */
+.logo {
+  float: left;
+}
+
+/* line 65, ../scss/_new.scss */
+.main-nav {
+  text-align: right;
+  float: right;
+  letter-spacing: -0.35em;
+  width: 50%;
+}
+
+/* line 72, ../scss/_new.scss */
+.main-nav-item {
+  letter-spacing: normal;
+  display: inline-block;
+  margin-left: 10px;
+}
+/* line 76, ../scss/_new.scss */
+.main-nav-item:first-child {
+  margin-left: 0;
+}
+
+/* line 81, ../scss/_new.scss */
+.main-nav-link {
+  padding: 10px 15px;
+  display: block;
+  color: #919191;
+  text-transform: capitalize;
+  text-decoration: none;
+  border: 1px solid transparent;
+  border-radius: 4px;
+}
+/* line 89, ../scss/_new.scss */
+.main-nav-link:hover {
+  border-color: #3d3d3d #262626 #262626 #3d3d3d;
+  text-decoration: none;
+}
+/* line 93, ../scss/_new.scss */
+.main-nav-link.active {
+  color: #d9dbdb;
+  border-color: #3d3d3d #262626 #262626 #3d3d3d;
+  background-color: #202020;
+  /* Fallback Color */
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#2a2a2a), to(#202020));
+  /* Saf4+, Chrome */
+  background-image: -webkit-linear-gradient(top, #2a2a2a, #202020);
+  /* Chrome 10+, Saf5.1+, iOS 5+ */
+  background-image: -moz-linear-gradient(top, #2a2a2a, #202020);
+  /* FF3.6 */
+  background-image: -ms-linear-gradient(top, #2a2a2a, #202020);
+  /* IE10 */
+  background-image: -o-linear-gradient(top, #2a2a2a, #202020);
+  /* Opera 11.10+ */
+  background-image: linear-gradient(top, #2a2a2a, #202020);
+  filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#2a2a2a', EndColorStr='#202020');
+}
+
+/* line 100, ../scss/_new.scss */
+.headline {
+  padding: 15px 0;
+}
+
+/* line 104, ../scss/_new.scss */
+.headline-content {
+  float: left;
+}
+/* line 106, ../scss/_new.scss */
+.headline-content span {
+  color: white;
+}
+
+/* line 111, ../scss/_new.scss */
+.search-block {
+  float: right;
+  position: relative;
+}
+
+/* line 116, ../scss/_new.scss */
+.search-input {
+  border: none;
+  outline: none;
+  width: 250px;
+  background-color: white;
+  border-radius: 2px;
+  line-height: 2.5;
+  padding: 0 40px 0 10px;
+}
+
+/* line 126, ../scss/_new.scss */
+.search-btn {
+  border: none;
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  width: 40px;
+  background: url("../images/search-icon.png") no-repeat center;
+  padding: 5px 0;
+  text-indent: -9999px;
+  cursor: pointer;
+}
+/* line 137, ../scss/_new.scss */
+.search-btn:active {
+  border: none;
+}
+
+/* line 143, ../scss/_new.scss */
+.slider-wrapper .bx-viewport {
+  background: url("../images/slider-bg.png") bottom center no-repeat;
+}
+/* line 146, ../scss/_new.scss */
+.slider-wrapper .bx-wrapper {
+  margin-bottom: 0;
+  padding-bottom: 20px;
+}
+/* line 150, ../scss/_new.scss */
+.slider-wrapper .bx-controls {
+  width: 100%;
+  text-align: center;
+}
+/* line 154, ../scss/_new.scss */
+.slider-wrapper .bx-controls {
+  background: url("../images/controls-bg.png") no-repeat center 30px;
+}
+/* line 157, ../scss/_new.scss */
+.slider-wrapper .bx-pager {
+  position: relative;
+  bottom: 0;
+  display: inline-block;
+  width: auto;
+  padding: 6px 25px;
+  margin-top: 20px;
+  border-radius: 20px;
+  background-color: #333333;
+  /* Fallback Color */
+  background-image: -webkit-gradient(linear, left top, left bottom, from(black), to(#333333));
+  /* Saf4+, Chrome */
+  background-image: -webkit-linear-gradient(top, black, #333333);
+  /* Chrome 10+, Saf5.1+, iOS 5+ */
+  background-image: -moz-linear-gradient(top, black, #333333);
+  /* FF3.6 */
+  background-image: -ms-linear-gradient(top, black, #333333);
+  /* IE10 */
+  background-image: -o-linear-gradient(top, black, #333333);
+  /* Opera 11.10+ */
+  background-image: linear-gradient(top, #000000, #333333);
+  filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='black', EndColorStr='#333333');
+}
+
+/* line 169, ../scss/_new.scss */
+.slider {
+  *zoom: 1;
+}
+/* line 14, ../scss/_mixins.scss */
+.slider:before, .slider:after {
+  content: " ";
+  display: table;
+}
+/* line 18, ../scss/_mixins.scss */
+.slider:after {
+  clear: both;
+}
+/* line 171, ../scss/_new.scss */
+.slider .bx-caption {
+  font-size: .916666em;
+  color: #666;
+  padding: 20px 30px 30px;
+  bottom: 10px;
+}
+/* line 177, ../scss/_new.scss */
+.slider .caption-heading {
+  color: #999;
+  font-size: 1.6363em;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: .5em;
+}
+/* line 185, ../scss/_new.scss */
+.slider .slide img {
+  padding-bottom: 10px;
+}
+
+/* line 191, ../scss/_new.scss */
+.main {
+  min-height: 100%;
+}
+
+/* line 195, ../scss/_new.scss */
+.main-content {
+  padding-bottom: 208px;
+}
+
+/* line 199, ../scss/_new.scss */
+.main-info {
+  line-height: 1.6;
+}
+/* line 201, ../scss/_new.scss */
+.main-info h3 {
+  text-transform: uppercase;
+  margin-bottom: .5em;
+  color: #2a2a2a;
+}
+
+/* line 208, ../scss/_new.scss */
+.main-content-top {
+  background-color: #5daade;
+  border-top: 1px solid rgba(255, 255, 255, 0.28);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+}
+
+/* line 214, ../scss/_new.scss */
+.main-content-center {
+  background-color: #f6f6f6;
+  border-top: 1px solid white;
+  padding: 60px 0 40px;
+}
+
+/* line 220, ../scss/_new.scss */
+.main-content-bottom {
+  background: #f6f6f6 url("../images/services-bg.png") center -47px no-repeat;
+  padding-bottom: 55px;
+}
+
+/* line 225, ../scss/_new.scss */
+.main-services {
+  padding-top: 55px;
+}
+
+/* line 229, ../scss/_new.scss */
+.service-info {
+  color: #565656;
+  float: left;
+  width: 33.33%;
+}
+/* line 233, ../scss/_new.scss */
+.service-info h3 {
+  margin-bottom: 2em;
+}
+/* line 236, ../scss/_new.scss */
+.service-info p {
+  margin-bottom: 0;
+}
+
+/* line 239, ../scss/_new.scss */
+.service-info-content {
+  padding: 0 30px 0 50px;
+}
+
+/* line 243, ../scss/_new.scss */
+.interface {
+  background: url("../images/service-icon-interface.png") no-repeat;
+}
+
+/* line 243, ../scss/_new.scss */
+.design {
+  background: url("../images/service-icon-design.png") no-repeat;
+}
+
+/* line 243, ../scss/_new.scss */
+.support {
+  background: url("../images/service-icon-support.png") no-repeat;
+}
+
+/* line 248, ../scss/_new.scss */
+.main-article {
+  float: left;
+  width: 60%;
+  color: #7d7d7d;
+}
+
+/* line 253, ../scss/_new.scss */
+.article-content {
+  color: #8f8f8f;
+  overflow: hidden;
+  padding-top: 30px;
+  line-height: 1.8;
+}
+/* line 258, ../scss/_new.scss */
+.article-content .read-more {
+  margin-left: 5px;
+}
+
+/* line 260, ../scss/_new.scss */
+.article-image-container {
+  float: left;
+  padding: 5px;
+  border: 1px solid #b3b3b3;
+  max-width: 225px;
+  margin: 0 30px 30px 0;
+}
+/* line 266, ../scss/_new.scss */
+.article-image-container img {
+  display: block;
+  max-width: 100%;
+  max-height: 95px;
+}
+
+/* line 272, ../scss/_new.scss */
+.news-block {
+  width: 33%;
+  float: right;
+}
+
+/* line 276, ../scss/_new.scss */
+.news-heading {
+  text-transform: uppercase;
+  font-size: 1.1666em;
+  font-weight: bold;
+  margin-bottom: .5em;
+  color: #565656;
+}
+/* line 282, ../scss/_new.scss */
+.news-heading:first-child {
+  color: #2a2a2a;
+}
+/* line 283, ../scss/_new.scss */
+.news-heading span {
+  display: block;
+  color: #69f;
+  font-size: .7857em;
+  text-transform: none;
+  margin-bottom: .5em;
+}
+/* line 289, ../scss/_new.scss */
+.news-heading span a {
+  color: #69f;
+}
+
+/* line 294, ../scss/_new.scss */
+.news-body {
+  margin-bottom: 2em;
+  color: #999;
+}
+/* line 297, ../scss/_new.scss */
+.news-body:last-child {
+  margin-bottom: 1em;
+}
+
+/* line 302, ../scss/_new.scss */
+footer {
+  background-color: #252525;
+  margin-top: -208px;
+  padding-top: 40px;
+  color: #717171;
+  *zoom: 1;
+}
+/* line 14, ../scss/_mixins.scss */
+footer:before, footer:after {
+  content: " ";
+  display: table;
+}
+/* line 18, ../scss/_mixins.scss */
+footer:after {
+  clear: both;
+}
+/* line 308, ../scss/_new.scss */
+footer h3 {
+  color: #fff;
+  text-transform: uppercase;
+  margin-bottom: 2em;
+}
+
+/* line 314, ../scss/_new.scss */
+.footer-block {
+  float: left;
+  width: 20%;
+  padding-right: 30px;
+  line-height: 1.6;
+}
+/* line 319, ../scss/_new.scss */
+.footer-block:first-child {
+  width: 25%;
+}
+/* line 320, ../scss/_new.scss */
+.footer-block:last-child {
+  padding-right: 0;
+  width: 35%;
+  color: #646464;
+}
+
+/* line 328, ../scss/_new.scss */
+.footer-block-content li {
+  line-height: 1.8;
+  padding-left: 15px;
+  background: url("../images/footer-list-image.png") no-repeat left center;
+}
+/* line 332, ../scss/_new.scss */
+.footer-block-content li a {
+  color: #717171;
+}
+/* line 336, ../scss/_new.scss */
+.footer-block-content blockquote {
+  text-indent: 30px;
+  position: relative;
+}
+/* line 339, ../scss/_new.scss */
+.footer-block-content blockquote:before {
+  content: "“";
+  top: -30px;
+  left: -30px;
+  position: absolute;
+  font-size: 72px;
+  color: #d1d1d1;
+}
+
+/* line 349, ../scss/_new.scss */
+.bquote-author {
+  color: #a7a7a7;
+  font-size: 0.91666em;
+  font-weight: bold;
+  text-transform: uppercase;
+  display: block;
+  padding-top: 5px;
+}
+
+/* line 357, ../scss/_new.scss */
+.logo-footer {
+  float: left;
+}
+
+/* line 360, ../scss/_new.scss */
+.footer-main {
+  padding-bottom: 30px;
+}
+
+/* line 363, ../scss/_new.scss */
+.footer-bottom {
+  background-color: #212121;
+  padding: 20px 0;
+}
+
+/* line 367, ../scss/_new.scss */
+.footer-bottom-copy {
+  font-size: .91666em;
+  float: right;
+}
+
+/* line 371, ../scss/_new.scss */
+.footer-copy-sign {
+  display: block;
+  margin-bottom: .5em;
+}
+
+/* line 375, ../scss/_new.scss */
+.footer-bottom-subnav {
+  display: inline-block;
+}
+/* line 377, ../scss/_new.scss */
+.footer-bottom-subnav li {
+  display: inline-block;
+  border-left: 1px solid;
+  padding: 0 5px;
+}
+/* line 381, ../scss/_new.scss */
+.footer-bottom-subnav li:first-child {
+  border: none;
+  padding-left: 0;
+}
+/* line 385, ../scss/_new.scss */
+.footer-bottom-subnav li a {
+  color: #717171;
+}
+
+/* line 388, ../scss/_new.scss */
+.footer-designed-by {
+  font-weight: bold;
+  color: #7a7a7a;
+}
