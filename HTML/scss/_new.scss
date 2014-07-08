@@ -119,8 +119,8 @@ header {
     width: 250px;
     background-color: white;
     border-radius: 2px;
-    line-height: 2.5;
-    padding: 0 40px 0 10px;
+    padding: 0 45px 0 10px;
+    height: 30px;
 }
 
 .search-btn {
@@ -129,7 +129,7 @@ header {
     right: 0;
     top: 0;
     height: 100%;
-    width: 40px;
+    width: 45px;
     background: url("../images/search-icon.png") no-repeat center;
     padding: 5px 0;
     text-indent: -9999px;
