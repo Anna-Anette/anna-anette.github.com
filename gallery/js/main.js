@@ -84,7 +84,7 @@ jQuery.noConflict()(function ($) {
 
     generateSwatches(galleryData);
 
-    ONEPICA.Gallery.init(galleryData, "#product-view-gallery", {
+    APP.Gallery.init(galleryData, "#product-view-gallery", {
         isQuickView: false
     });
 
@@ -106,7 +106,7 @@ jQuery.noConflict()(function ($) {
             if(key === $(this).attr('data-swatch')) {
                 return;
             }
-            ONEPICA.Gallery.switchGalleryView($(this).attr('data-swatch'));
+            APP.Gallery.switchGalleryView($(this).attr('data-swatch'));
             key = $(this).attr('data-swatch');
         });
     })();

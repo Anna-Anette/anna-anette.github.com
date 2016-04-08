@@ -1,9 +1,9 @@
 'use strict';
 
-var ONEPICA = ONEPICA || {};
+var APP = APP || {};
 (function ($) {
-    ONEPICA.Gallery = ONEPICA.Gallery || {};
-    ONEPICA.Gallery = {
+    APP.Gallery = APP.Gallery || {};
+    APP.Gallery = {
 
         /**
          * Main gallery params
