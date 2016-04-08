@@ -1,4 +1,8 @@
 # Created by .ignore support plugin (hsz.mobi)
 /.sass-cache
 /.idea
+/images
+/js/bxSlider
+/js/singleton.js
+
 node_modules
