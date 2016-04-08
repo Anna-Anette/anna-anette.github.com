@@ -1,0 +1,55 @@
+label {
+    user-select: none;
+}
+h3, h4 {
+    margin-bottom: 20px;
+}
+.add-row-form {
+    display: none;
+    padding: 15px 0;
+}
+thead {
+    td {
+        font-weight: bold;
+    }
+}
+td {
+    text-align: center;
+    input {
+        margin: 0 auto;
+    }
+}
+textarea {
+    margin-bottom: 15px;
+}
+label {
+    margin-bottom: 10px;
+}
+.btn-group {
+    margin-bottom: 15px;
+}
+.sort-by {
+    @include no-user-select;
+    padding-left: 25px !important;
+    .glyphicon {
+        visibility: hidden;
+    }
+    &:hover {
+        color: #337ab7;
+        cursor: pointer;
+    }
+    &[data-is-sorted~= true]{
+        color: #5cb85c;
+        .glyphicon {
+            visibility: visible;
+        }
+    }
+}
+.visible {
+    display: table-row;
+ //   background: red !important;
+}
+.hidden {
+    display: none;
+  //  background: green !important;
+}

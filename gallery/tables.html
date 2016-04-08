@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Table Editor</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+<div class="main row">
+    <div class="col-lg-7 col-lg-offset-1">
+        <h1>Table Editor</h1>
+        <ul class="list-group list-of-notes">
+            <li class="note">
+            </li>
+        </ul>
+        <table class="table table-striped table-hover" id="rowTable">
+            <thead>
+            <tr>
+                <td></td>
+                <td>
+                    <label for="filter">Filter by name</label>
+                    <input id="filter" type="text" class="form-control" /></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+
+            </tr>
+            <tr id="sortingRow">
+                <td id="sortById" class="sort-by" data-sort="number" data-index="0" data-is-sorted="false">id  <i class="glyphicon glyphicon-arrow-down"></i></td>
+                <td id="sortByName" class="sort-by" data-sort="string" data-index="1" data-is-sorted="false">Name  <i class="glyphicon glyphicon-arrow-down"></i></td>
+                <td id="sortByQty" class="sort-by" data-sort="number" data-index="2" data-is-sorted="false">Qty  <i class="glyphicon glyphicon-arrow-down"></i></td>
+                <td>Availability</td>
+                <td>Delete</td>
+            </tr>
+            </thead>
+            <tbody id="rowTableBody"></tbody>
+        </table>
+            <ul class="pagination" id="pagination">
+              </ul>
+        <div class="btn-group">
+            <button class="btn btn-default" id="showAddRowForm"> Add new row</button>
+            <button class="btn btn-danger" id="deleteRowBtn">Delete row</button>
+            <button class="btn btn-success" id="demoData">Demo data</button>
+            <button class="btn btn-primary" id="clearTable">Clear table</button>
+            <button class="btn btn-warning" id="exportTable">Export table</button>
+            <button class="btn btn-success" id="paginate">Paginate</button>
+        </div>
+
+        <div class="add-row-form" id="addRowContainer">
+            <h3>
+                Add new row
+            </h3>
+
+            <form name="addRowForm" id="addRowForm">
+                <ul class="list-group">
+                    <li class="list-group-item">
+                        <label for="name" class="control-label">Name</label>
+                        <input type="text" id="name" class="form-control title" />
+                    </li>
+                    <li class="list-group-item">
+                        <label for="qtySelect">Qty</label>
+                        <select name="qty-select" id="qtySelect" class="form-control">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
+                    </li>
+                    <li class="list-group-item">
+                        <input type="checkbox" id="available" class="checkbox-inline" />
+                        <label for="available" class="label label-default">Availability</label>
+                    </li>
+                </ul>
+                <button class="btn-primary btn" id="addNewRowBtn">Add row</button>
+            </form>
+        </div>
+        <div class="form-group">
+            <label for="importData">Import Data</label>
+            <textarea name="importData" id="importData" cols="20" rows="10" class="form-control"></textarea>
+            <button class="btn-primary btn" id="importDataBtn">Import Data</button>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+</script>
+<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/table-editor.js"></script>
+<script src="jasmine/src/EntriesModel.js"></script>
+
+<script type="text/javascript">
+    var newData = {
+        buttons: {
+            showAddRowBtn: document.getElementById('showAddRowForm'),
+            deleteRowBtn: document.getElementById('deleteRowBtn'),
+            addRowBtn: document.getElementById('addNewRowBtn'),
+            randomDataBtn: document.getElementById('demoData'),
+            exportDataBtn: document.getElementById('exportTable'),
+            importDataBtn: document.getElementById('importDataBtn'),
+            clearDataBtn: document.getElementById('clearTable'),
+            paginateDataBtn: document.getElementById('paginate')
+        },
+        sortBtns: {
+            sortingRow: document.getElementById('sortingRow'),
+            sortByNameBtn: document.getElementById('sortByName'),
+            sortByIdBtn: document.getElementById('sortById'),
+            sortByQtyBtn: document.getElementById('sortByQty'),
+            filterOnFlyBtn: document.getElementById('filter')
+        },
+        addRowContainer: document.getElementById('addRowContainer'),
+
+        addRowForm: document.getElementById('addRowForm'),
+
+        tableBody: document.getElementById('rowTableBody'),
+
+        importDataHolder: document.getElementById('importData'),
+        pagerContainer: document.getElementById('pagination'),
+        rowInfo: {
+            numCells: 4
+        }
+    };
+    var newTable = new TableEditor(newData);
+    newTable.init();
+</script>
+</body>
+</html>
